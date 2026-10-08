@@ -6,7 +6,7 @@
 window.SUNSA = {
 
   /* Cloudinary "cloud name" — shown on your Cloudinary dashboard (top left). */
-  cloudName: cloudName: "vycwgmay",
+  cloudName: "vycwgmay",
 
   /* Google Sheet ID — the long code in the Sheet's address:
      https://docs.google.com/spreadsheets/d/  THIS_PART  /edit
