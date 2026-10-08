@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sunsa · Studio Notebook</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="home">
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/sun.png" alt=""><span>SUNSA</span></a>
+  <nav class="nav">
+    <a href="index.html" aria-current="page">Studio</a>
+    <a href="index.html#studies-section">Studies</a>
+    <a href="photos.html">Photos</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <img src="assets/logo.png" alt="Sunsa">
+    <p>Notes, references and studies for the easel.</p>
+  </section>
+
+  <section class="summary">
+    <div class="panel">
+      <p class="eyebrow">Before the first stroke</p>
+      <div id="summary" class="prose"></div>
+    </div>
+    <div class="aside-stack">
+      <div class="panel links" id="artists"><h3>Artists</h3></div>
+      <div class="panel links" id="courses"><h3>Courses</h3></div>
+    </div>
+  </section>
+
+  <section id="studies-section">
+    <div class="section-title"><h2>Studies</h2><span class="count">Notes · links · photos</span></div>
+    <div class="cards" id="studies"></div>
+  </section>
+
+  <section>
+    <div class="section-title"><h2>Photo collections</h2><a href="photos.html">All photos →</a></div>
+    <div class="cards" id="collections" data-photocards></div>
+  </section>
+</main>
+<footer class="site-foot"><div class="wrap"><span>Sunsa · studio notebook</span><button data-theme-toggle>Light / dark</button></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
