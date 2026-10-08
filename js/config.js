@@ -17,36 +17,35 @@ window.SUNSA = {
 
   /* ---------------------------------------------------------------
      STUDIES — pages with notes + links + photos.
-       slug    : short name used in web addresses and as the Cloudinary TAG for its photos
+       slug    : short name used in the web address; notes live in content/<slug>.md
        title   : name shown on the site (also what you type in the Sheet's Category column)
+       tag     : the Cloudinary TAG on this study's photos (capitals don't matter)
        pigment : just decoration — the swatch colour on the card
-     Notes for each study live in  content/<slug>.md
      --------------------------------------------------------------- */
   studies: [
-    { slug: "edges",         title: "Edges",         pigment: ["#5a3a24", "Burnt Umber"] },
-    { slug: "shadows",       title: "Shadows",       pigment: ["#26305e", "Ultramarine"] },
-    { slug: "color",         title: "Color Work",    pigment: ["#c8562a", "Cadmium Orange"] },
-    { slug: "human-imagery", title: "Human Imagery", pigment: ["#c98f72", "Flesh Tint"] },
-    { slug: "mountains",     title: "Mountains",     pigment: ["#5d6b7a", "Payne's Grey"] },
-    { slug: "beaches",       title: "Beaches",       pigment: ["#d9b77a", "Naples Yellow"] },
-    { slug: "alleyways",     title: "Alleyways",     pigment: ["#8a4b3a", "Venetian Red"] },
-    { slug: "sky-clouds",    title: "Sky / Clouds",  pigment: ["#7fa8c9", "Cerulean"] },
-    { slug: "rocks",         title: "Rocks",         pigment: ["#8b7d6b", "Raw Umber"] },
-    { slug: "trees",         title: "Trees",         pigment: ["#4f6b35", "Sap Green"] },
-    { slug: "water",         title: "Water",         pigment: ["#2f6f73", "Phthalo Turquoise"] }
+    { slug: "edges",         title: "Edges",         tag: "edges",         pigment: ["#5a3a24", "Burnt Umber"] },
+    { slug: "shadows",       title: "Shadows",       tag: "shadows",       pigment: ["#26305e", "Ultramarine"] },
+    { slug: "color",         title: "Color Work",    tag: "color_work",    pigment: ["#c8562a", "Cadmium Orange"] },
+    { slug: "human-imagery", title: "Human Imagery", tag: "human_imagery", pigment: ["#c98f72", "Flesh Tint"] },
+    { slug: "mountains",     title: "Mountains",     tag: "mountains",     pigment: ["#5d6b7a", "Payne's Grey"] },
+    { slug: "beaches",       title: "Beaches",       tag: "beaches",       pigment: ["#d9b77a", "Naples Yellow"] },
+    { slug: "alleyways",     title: "Alleyways",     tag: "alleyways",     pigment: ["#8a4b3a", "Venetian Red"] },
+    { slug: "sky-clouds",    title: "Sky / Clouds",  tag: "sky_clouds",    pigment: ["#7fa8c9", "Cerulean"] },
+    { slug: "rocks",         title: "Rocks",         tag: "rocks",         pigment: ["#8b7d6b", "Raw Umber"] },
+    { slug: "trees",         title: "Trees",         tag: "trees",         pigment: ["#4f6b35", "Sap Green"] },
+    { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] }
   ],
 
   /* ---------------------------------------------------------------
-     PHOTO-ONLY collections — photos, no notes.
-     slug = the Cloudinary TAG to put on those photos.
+     PHOTO-ONLY folders — photos, no notes.
+     tag = the Cloudinary TAG on those photos.
      --------------------------------------------------------------- */
   collections: [
-    { slug: "asian",         title: "Asian" },
-    { slug: "copenhagen",    title: "Copenhagen" },
-    { slug: "norway",        title: "Norway" },
-    { slug: "treetop",       title: "Treetop" },
-    { slug: "other-artists", title: "Other Artist Examples" },
-    { slug: "murals",        title: "Murals" }
+    { slug: "asia-africa",   title: "Asia & Africa",  tag: "asia_africa" },
+    { slug: "flowers",       title: "Flowers",        tag: "flowers" },
+    { slug: "other-artists", title: "Other Artists",  tag: "other_artists" },
+    { slug: "travel",        title: "Travel",         tag: "travel_pics" },
+    { slug: "treetop-ridge", title: "Treetop Ridge",  tag: "treetop_ridge" }
   ],
 
   /* Used only if the Google Sheet can't be reached (or isn't set up yet). */

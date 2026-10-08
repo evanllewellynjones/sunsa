@@ -16,9 +16,9 @@
 <header class="site-head"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/sun.png" alt=""><span>SUNSA</span></a>
   <nav class="nav">
-    <a href="index.html" aria-current="page">Studio</a>
+    <a href="index.html#summary-section">Summary</a>
     <a href="index.html#studies-section">Studies</a>
-    <a href="photos.html">Photos</a>
+    <a href="index.html#folders-section"><span class="hide-sm">Photo </span>Folders</a>
   </nav>
 </div></header>
 <main class="wrap">
@@ -27,6 +27,7 @@
     <p>Notes, references and studies for the easel.</p>
   </section>
 
+  <div class="section-title" id="summary-section"><h2>Summary</h2></div>
   <section class="summary">
     <div class="panel">
       <p class="eyebrow">Before the first stroke</p>
@@ -43,9 +44,9 @@
     <div class="cards" id="studies"></div>
   </section>
 
-  <section>
-    <div class="section-title"><h2>Photo collections</h2><a href="photos.html">All photos →</a></div>
-    <div class="cards" id="collections" data-photocards></div>
+  <section id="folders-section">
+    <div class="section-title"><h2>Photo Folders</h2><span class="count">Click a folder to see its photos</span></div>
+    <div class="cards" id="folders" data-photocards></div>
   </section>
 </main>
 <footer class="site-foot"><div class="wrap"><span>Sunsa · studio notebook</span><button data-theme-toggle>Light / dark</button></div></footer>

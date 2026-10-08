@@ -183,3 +183,6 @@ h1{font-size:clamp(40px,6vw,64px);letter-spacing:-.01em}
 .study-nav{display:flex;justify-content:space-between;gap:12px;font-size:16px}
 .study-nav a{color:var(--muted);text-decoration:none}
 .study-nav a:hover{color:var(--accent)}
+section,[id]{scroll-margin-top:84px}
+.nav a{white-space:nowrap}
+@media (max-width:600px){.hide-sm{display:none}}

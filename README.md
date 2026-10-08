@@ -66,8 +66,10 @@ Add a row to the Sheet: `https://…` | `Nice title` | `Trees`. That's it.
 
 | Tag | Shows on |
 |---|---|
-| `edges` `shadows` `color` `human-imagery` `mountains` `beaches` `alleyways` `sky-clouds` `rocks` `trees` `water` | the matching study |
-| `asian` `copenhagen` `norway` `treetop` `other-artists` `murals` | photo-only collections |
+| `edges` `shadows` `color_work` `human_imagery` `mountains` `beaches` `alleyways` `sky_clouds` `rocks` `trees` `water` | the matching Study + its Photo Folder |
+| `asia_africa` `flowers` `other_artists` `travel_pics` `treetop_ridge` | Photo Folders only |
+
+Capitals don't matter. Tip: keep one Cloudinary folder per tag, then after uploading select all in the folder → **Tag**.
 
 - A photo can have several tags and will appear in each collection.
 - The newest photos show first, 50 per page.
@@ -84,7 +86,7 @@ On github.com, open `content/edges.md` (or any page) → click the ✏️ pencil
 `content/summary.md` is the "Before the first stroke" box on the home page.
 
 ### Add a new study or collection
-Edit `js/config.js` and copy one line in the `studies` or `collections` list, giving it a new `slug` (which is also its photo tag) and `title`. For a study, also add `content/<slug>.md`.
+Edit `js/config.js` and copy one line in the `studies` or `collections` list, giving it a new `slug` (used in the web address), `title`, and `tag` (the Cloudinary tag). For a study, also add `content/<slug>.md`.
 
 ---
 

@@ -70,7 +70,7 @@
       .catch(() => []));
   }
   const pid = p => p.public_id.split("/").map(encodeURIComponent).join("/");
-  const img = (p, t) => `https://res.cloudinary.com/${C.cloudName}/image/upload/${t}/v${p.version}/${pid(p)}`;
+  const img = (p, t) => `https://res.cloudinary.com/${C.cloudName}/image/upload/${t}/v${p.version}/${pid(p)}.${p.format}`;
   const thumb = p => img(p, "c_fill,g_auto,w_640,h_640,f_auto,q_auto");
   const large = p => img(p, "c_limit,w_2400,h_2400,f_auto,q_auto");
   const original = p => `https://res.cloudinary.com/${C.cloudName}/image/upload/v${p.version}/${pid(p)}.${p.format}`;
@@ -119,7 +119,7 @@
   /* ---------------- shared bits ---------------- */
   function cardHTML(cat, href) {
     const sw = cat.pigment ? cat.pigment[0] : "#b9ab96";
-    return `<a class="card" href="${href}" data-tag="${esc(cat.slug)}" style="--sw:${sw}">
+    return `<a class="card" href="${href}" data-tag="${esc(cat.tag || cat.slug)}" style="--sw:${sw}">
       <div class="art"><div class="blob"></div></div>
       <div class="meta"><b>${esc(cat.title)}</b><small data-count></small></div></a>`;
   }
@@ -156,7 +156,7 @@
         renderLinks($("#courses"), "Courses", linksFor(links, "Courses", "Course"));
       });
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
-      $("#collections").innerHTML = C.collections.map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
+      $("#folders").innerHTML = allCats().sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       fillCovers(document);
     },
 
@@ -169,7 +169,7 @@
       $("#photos-btn").href = `gallery.html?c=${s.slug}`;
       md(`content/${s.slug}.md`, $("#notes"), "Notes coming soon.");
       getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, s.title, s.slug)));
-      getPhotos(s.slug).then(list => { if (list && list.length) $("#photos-label").textContent = `View ${list.length} photos`; });
+      getPhotos(s.tag || s.slug).then(list => { if (list && list.length) $("#photos-label").textContent = `View ${list.length} photos`; });
       // neighbours
       const i = C.studies.indexOf(s), prev = C.studies[(i - 1 + C.studies.length) % C.studies.length], next = C.studies[(i + 1) % C.studies.length];
       $("#study-nav").innerHTML = `<a href="topic.html?t=${prev.slug}">← ${esc(prev.title)}</a><a href="topic.html?t=${next.slug}">${esc(next.title)} →</a>`;
@@ -193,9 +193,9 @@
         grid.outerHTML = `<div class="notice">Photos aren't connected yet — add your Cloudinary <b>cloudName</b> in <b>js/config.js</b>.</div>`; return;
       }
       grid.innerHTML = Array.from({ length: 9 }, () => `<button class="skeleton" tabindex="-1"></button>`).join("");
-      getPhotos(cat.slug).then(list => {
+      getPhotos(cat.tag || cat.slug).then(list => {
         if (!list.length) {
-          grid.outerHTML = `<div class="notice">No photos yet. In Cloudinary, add the tag <b>${esc(cat.slug)}</b> to photos for this collection.<br><small>New tags show up here within about a minute.</small></div>`;
+          grid.outerHTML = `<div class="notice">No photos yet. In Cloudinary, add the tag <b>${esc(cat.tag || cat.slug)}</b> to photos for this collection.<br><small>New tags show up here within about a minute.</small></div>`;
           return;
         }
         const pages = Math.ceil(list.length / per);
