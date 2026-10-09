@@ -24,7 +24,7 @@ window.SUNSA = {
      --------------------------------------------------------------- */
   studies: [
     { slug: "edges",         title: "Edges",         tag: "edges",         pigment: ["#5a3a24", "Burnt Umber"] },
-    { slug: "shadows",       title: "Shadows",       tag: "shadows",       pigment: ["#26305e", "Ultramarine"] },
+    { slug: "shadows",       title: "Shadows & Washes", tag: "shadows",       pigment: ["#26305e", "Ultramarine"] },
     { slug: "color",         title: "Color Work",    tag: "color_work",    pigment: ["#c8562a", "Cadmium Orange"] },
     { slug: "human-imagery", title: "Human Imagery", tag: "human_imagery", pigment: ["#c98f72", "Flesh Tint"] },
     { slug: "mountains",     title: "Mountains",     tag: "mountains",     pigment: ["#5d6b7a", "Payne's Grey"] },
