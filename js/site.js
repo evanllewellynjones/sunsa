@@ -52,11 +52,11 @@
     return linksPromise;
   }
   const linksFor = (links, ...names) => { const n = names.map(norm); return links.filter(l => n.includes(norm(l.category))); };
-  function renderLinks(el, heading, list) {
+  function renderLinks(el, heading, list, cat) {
     const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
     el.innerHTML = `<h3>${esc(heading)}</h3>` + (list.length
       ? `<ul>${list.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">${esc(host(l.url))}</span></span></a></li>`).join("")}</ul>`
-      : `<p class="none">No links yet — add rows to the Sheet with Category “${esc(heading === "Further reading" ? "this page’s title" : heading)}”.</p>`);
+      : `<p class="none">No links yet — add rows to the Sheet with Category “${esc(cat || heading)}”.</p>`);
   }
 
   /* ---------------- photos (Cloudinary) ---------------- */
@@ -156,7 +156,7 @@
         renderLinks($("#courses"), "Courses", linksFor(links, "Courses", "Course"));
       });
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
-      $("#folders").innerHTML = allCats().sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
+      $("#folders").innerHTML = [...C.collections].sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       fillCovers(document);
     },
 
@@ -168,7 +168,7 @@
       $("#swatch").innerHTML = `<i style="--sw:${s.pigment[0]}"></i>${esc(s.pigment[1])}`;
       $("#photos-btn").href = `gallery.html?c=${s.slug}`;
       md(`content/${s.slug}.md`, $("#notes"), "Notes coming soon.");
-      getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, s.title, s.slug)));
+      getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, s.title, s.slug, s.tag), s.title));
       getPhotos(s.tag || s.slug).then(list => { if (list && list.length) $("#photos-label").textContent = `View ${list.length} photos`; });
       // neighbours
       const i = C.studies.indexOf(s), prev = C.studies[(i - 1 + C.studies.length) % C.studies.length], next = C.studies[(i + 1) % C.studies.length];

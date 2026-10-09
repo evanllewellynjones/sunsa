@@ -66,8 +66,8 @@ Add a row to the Sheet: `https://…` | `Nice title` | `Trees`. That's it.
 
 | Tag | Shows on |
 |---|---|
-| `edges` `shadows` `color_work` `human_imagery` `mountains` `beaches` `alleyways` `sky_clouds` `rocks` `trees` `water` | the matching Study + its Photo Folder |
-| `asia_africa` `flowers` `other_artists` `travel_pics` `treetop_ridge` | Photo Folders only |
+| `edges` `shadows` `color_work` `human_imagery` `mountains` `beaches` `alleyways` `sky_clouds` `rocks` `trees` `water` `flowers` | the matching Study + its Photo Folder |
+| `asia_africa` `other_artists` `travel_pics` `treetop_ridge` | Photo Folders only |
 
 Capitals don't matter. Tip: keep one Cloudinary folder per tag, then after uploading select all in the folder → **Tag**.
 

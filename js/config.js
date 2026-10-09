@@ -33,7 +33,8 @@ window.SUNSA = {
     { slug: "sky-clouds",    title: "Sky / Clouds",  tag: "sky_clouds",    pigment: ["#7fa8c9", "Cerulean"] },
     { slug: "rocks",         title: "Rocks",         tag: "rocks",         pigment: ["#8b7d6b", "Raw Umber"] },
     { slug: "trees",         title: "Trees",         tag: "trees",         pigment: ["#4f6b35", "Sap Green"] },
-    { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] }
+    { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] },
+    { slug: "flowers",       title: "Flowers",       tag: "flowers",       pigment: ["#b03a6e", "Quinacridone Magenta"] }
   ],
 
   /* ---------------------------------------------------------------
@@ -42,7 +43,6 @@ window.SUNSA = {
      --------------------------------------------------------------- */
   collections: [
     { slug: "asia-africa",   title: "Asia & Africa",  tag: "asia_africa" },
-    { slug: "flowers",       title: "Flowers",        tag: "flowers" },
     { slug: "other-artists", title: "Other Artists",  tag: "other_artists" },
     { slug: "travel",        title: "Travel",         tag: "travel_pics" },
     { slug: "treetop-ridge", title: "Treetop Ridge",  tag: "treetop_ridge" }
