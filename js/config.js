@@ -47,6 +47,10 @@ window.SUNSA = {
     { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] }
   ],
 
+  /* NEXT UP — the "to paint next" photo folder shown under Courses on the home page.
+     tag = the Cloudinary TAG on those photos. */
+  nextUp: { slug: "next-up", title: "Next Up", tag: "next_up" },
+
   /* ---------------------------------------------------------------
      PHOTO-ONLY folders — photos, no notes.
      tag = the Cloudinary TAG on those photos.

@@ -6,7 +6,7 @@
   const norm = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   const qs = new URLSearchParams(location.search);
   const TECH = C.techniques || [];
-  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...TECH.map(s => ({ ...s, kind: "study", tech: true })), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
+  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...TECH.map(s => ({ ...s, kind: "study", tech: true })), ...(C.nextUp ? [{ ...C.nextUp, kind: "collection" }] : []), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
   const findCat = slug => allCats().find(c => c.slug === slug);
   const configured = v => v && !/^YOUR_/.test(v);
 
@@ -156,6 +156,17 @@
         renderLinks($("#courses"), "Courses", linksFor(links, "Courses", "Course"));
       });
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
+      const nu = C.nextUp, box = $("#next-up");
+      if (nu && box) {
+        box.hidden = false;
+        box.innerHTML = `<h3>${esc(nu.title)}</h3><a class="next-up" href="gallery.html?c=${nu.slug}"><span class="thumb"></span><span><span class="t">Paintings to do</span><br><span class="host" data-n>View photos</span></span></a>`;
+        getPhotos(nu.tag).then(list => {
+          if (!list || !list.length) { $("[data-n]", box).textContent = "No photos yet"; return; }
+          $("[data-n]", box).textContent = `${list.length} photo${list.length > 1 ? "s" : ""}`;
+          const im = new Image(); im.alt = ""; im.src = img(list[0], "c_fill,g_auto,w_160,h_160,f_auto,q_auto");
+          im.onload = () => $(".thumb", box).appendChild(im);
+        });
+      }
       $("#techniques").innerHTML = TECH.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
       $("#techniques-section").hidden = !TECH.length;
       $("#folders").innerHTML = [...C.collections].sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
