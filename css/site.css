@@ -54,7 +54,7 @@ a:hover{color:var(--accent)}
 .nav{display:flex;gap:28px}
 .nav a{font:500 16px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);padding:6px 0;border-bottom:1px solid transparent}
 .nav a:hover,.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
-@media (max-width:600px){.brand span{display:none}.nav{gap:16px}.nav a{font-size:16px;letter-spacing:.06em}}
+@media (max-width:600px){.brand span{display:none}.nav{gap:12px}.nav a{font-size:16px;letter-spacing:.04em}}
 
 /* ---------- hero ---------- */
 .hero{text-align:center;padding:72px 0 56px}
@@ -190,8 +190,8 @@ section,[id]{scroll-margin-top:84px}
 main > .section-title:first-child{margin-top:48px}
 /* tables in study notes */
 .prose{min-width:0}
-.prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:8px 0 26px;font-size:15px;line-height:1.45}
+.prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:8px 0 26px;font-size:16px;line-height:1.45}
 .prose th,.prose td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
-.prose th{font-weight:600;color:var(--muted);font-size:13px;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid var(--rule);white-space:nowrap}
+.prose th{font-weight:600;color:var(--muted);font-size:16px;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid var(--rule);white-space:nowrap}
 .prose td:first-child{font-weight:500;white-space:nowrap}
 .prose hr{border:0;border-top:1px solid var(--rule);margin:36px 0}

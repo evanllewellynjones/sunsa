@@ -4,7 +4,7 @@ A static website hosted free on GitHub Pages:
 
 | What | Where it lives | How to change it |
 |---|---|---|
-| Links (artists, courses, videos) | Google Sheet **"Sunsa Site Links"** | Add a row. Live on the next page refresh |
+| Links (artists, courses, videos) | `links.csv` in this repo | Add a row (github.com or Excel). Live in about 1–10 minutes |
 | Photos | Cloudinary, organized by **tag** | Upload, then tag. Live in about 1 minute |
 | Notes text for each study | `content/<page>.md` in this repo | Edit the file on github.com. Live in about 1 minute |
 | Pages, categories, settings | `js/config.js` | Rarely needed |
@@ -13,14 +13,12 @@ A static website hosted free on GitHub Pages:
 
 ## One-time setup (about 30 minutes total)
 
-### 1. Google Sheet: make it readable by the site (1 min)
-1. Open **Sunsa Site Links** in Google Drive. It's already created and filled in from your Word doc.
-2. Click **Share** → under *General access*, choose **Anyone with the link** → **Viewer** → **Done**.
-
+### 1. Links file
+Links live in `links.csv` at the top of this repo (the old Google Sheet is no longer used).
 The columns are **Link | Title | Category**. In Category, use:
 - `Artists` for the Artists box on the home page
 - `Courses` for the Courses box on the home page
-- A study's name (`Edges`, `Shadows`, `Color Work`, `Sky / Clouds`, …) for that page's "Further reading" list
+- A study's or technique's name (`Edges`, `Shadows`, `Glazing`, `Sky / Clouds`, …) for that page's "Further reading" list
 
 Capitals and spaces don't matter.
 
@@ -58,7 +56,13 @@ Then in GitHub **Settings → Pages → Custom domain**, enter `www.sunsaartisan
 ## Everyday use
 
 ### Add a link
-Add a row to the Sheet: `https://…` | `Nice title` | `Trees`. That's it.
+**On github.com (easiest):** open `links.csv` → ✏️ pencil → add a line at the bottom → **Commit changes**:
+```
+https://www.youtube.com/watch?v=abc123,Nice title,Trees
+```
+If a title contains a comma, wrap it in quotes: `"Trees - comma strokes, slow-mo"`.
+
+**In Excel:** open `links.csv`, add a row, **File → Save** and keep the **CSV UTF-8** format when Excel asks. Then upload it to the repo (Add file → Upload files), replacing the old one.
 
 ### Add photos
 1. In Cloudinary, open **Media Library → Upload** (works from your phone's browser too). JPG, PNG and HEIC are all fine.
@@ -93,4 +97,4 @@ Edit `js/config.js` and copy one line in the `studies` or `collections` list, gi
 ## Notes
 - **Privacy:** the site is hidden from search engines (`robots.txt` plus a `noindex` tag) but is not password protected. Anyone with the address can view it.
 - **Opening the files locally:** double-clicking an `.html` file won't load the notes, because browsers block that. View the site at its web address instead.
-- If the Sheet is ever unreachable, the site falls back to the starter links saved in `js/config.js`.
+- If `links.csv` is ever unreadable, the site falls back to the starter links saved in `js/config.js`.

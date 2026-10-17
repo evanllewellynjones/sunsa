@@ -1,3 +1,5 @@
+*Edges = where two shapes meet, and how sharp that meeting is. For laying transparent color over finished areas, see [Glazing](topic.html?t=glazing).*
+
 ### [Hard & soft edges in portraits](https://youtu.be/ma-knl2Bu6s)
 
 - Edges can't all be the same: **hard, soft, lost**
@@ -22,11 +24,7 @@
 2. **Wet on dry** — let a color dry, then paint over it and feather the wet onto the dry
 3. **Dry brush / scumbling** — very light paint brushed lightly over the top; blends, but *does leave streaks, not totally combined*
 4. **Wet on wet** — different shades smudged together while wet. **Use retarder** to help
-5. **Glazing** — transparent layer over a dry layer; use a soft brush
-   - Use water — or better, glazing medium — over a dry paint area. Transparent paints are easiest to glaze with
-   - You can wipe glazing off parts of the painting (e.g. less in the foreground)
-   - Multiple glazes in different areas are fine — but let each **dry**
-   - [Glazing — how to](https://www.youtube.com/watch?v=8g-_7OWQTQw)
+5. **Glazing** — a transparent layer over a dry layer, which softens an edge from on top. Full method on the [Glazing](topic.html?t=glazing) page
 
 **Other edge tools**
 

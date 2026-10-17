@@ -8,17 +8,16 @@ window.SUNSA = {
   /* Cloudinary "cloud name" — shown on your Cloudinary dashboard (top left). */
   cloudName: "vycwgmay",
 
-  /* Google Sheet ID — the long code in the Sheet's address:
-     https://docs.google.com/spreadsheets/d/  THIS_PART  /edit
-     The Sheet must be shared as "Anyone with the link: Viewer". */
-  sheetId: "18Dgkj1s9CtBRblt0X4KYEMcnvV7MedpyVgmJjHuwJXg",
+  /* Links file in this repo — columns Link, Title, Category.
+     Edit it on github.com (pencil icon) or in Excel, then upload. */
+  linksFile: "links.csv",
 
   photosPerPage: 50,
 
   /* ---------------------------------------------------------------
      STUDIES — pages with notes + links + photos.
        slug    : short name used in the web address; notes live in content/<slug>.md
-       title   : name shown on the site (also what you type in the Sheet's Category column)
+       title   : name shown on the site (also what you type in links.csv's Category column)
        tag     : the Cloudinary TAG on this study's photos (capitals don't matter)
        pigment : just decoration — the swatch colour on the card
      --------------------------------------------------------------- */
@@ -38,6 +37,17 @@ window.SUNSA = {
   ],
 
   /* ---------------------------------------------------------------
+     TECHNICAL — how-to pages for a method (impasto, glazing…).
+     Same fields as Studies; notes live in content/<slug>.md,
+     links.csv uses the title as Category, photos use the tag.
+     --------------------------------------------------------------- */
+  techniques: [
+    { slug: "impasto", title: "Impasto", tag: "impasto", pigment: ["#c9a24a", "Yellow Ochre"] },
+    { slug: "glazing", title: "Glazing", tag: "glazing", pigment: ["#4a3470", "Dioxazine Purple"] },
+    { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] }
+  ],
+
+  /* ---------------------------------------------------------------
      PHOTO-ONLY folders — photos, no notes.
      tag = the Cloudinary TAG on those photos.
      --------------------------------------------------------------- */
@@ -48,7 +58,7 @@ window.SUNSA = {
     { slug: "treetop-ridge", title: "Treetop Ridge",  tag: "treetop_ridge" }
   ],
 
-  /* Used only if the Google Sheet can't be reached (or isn't set up yet). */
+  /* Used only if links.csv can't be read. */
   fallbackLinks: [
     ["https://www.patreon.com/cw/paintwithkevin", "Kevin Hill", "Artists"],
     ["https://www.michaeljamessmith.com/mjs-tv", "Michael James Smith", "Artists"],
@@ -60,7 +70,7 @@ window.SUNSA = {
     ["https://youtu.be/ma-knl2Bu6s", "Hard & Soft Edges in Portraits", "Edges"],
     ["https://www.youtube.com/watch?v=giUACK8XwDI&t=228s", "5 Tips to Hard & Soft Edges", "Edges"],
     ["https://www.youtube.com/watch?v=C0YkHg52k-4", "5 Methods of Blending", "Edges"],
-    ["https://www.youtube.com/watch?v=8g-_7OWQTQw", "Glazing — How To", "Edges"],
+    ["https://www.youtube.com/watch?v=8g-_7OWQTQw", "Glazing — How To", "Glazing"],
     ["https://www.youtube.com/watch?v=kNN2dHWKKaQ", "Blending Using Layers", "Edges"]
   ]
 };

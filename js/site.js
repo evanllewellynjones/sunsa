@@ -5,7 +5,8 @@
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const norm = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   const qs = new URLSearchParams(location.search);
-  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
+  const TECH = C.techniques || [];
+  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...TECH.map(s => ({ ...s, kind: "study", tech: true })), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
   const findCat = slug => allCats().find(c => c.slug === slug);
   const configured = v => v && !/^YOUR_/.test(v);
 
@@ -21,7 +22,7 @@
     try { localStorage.setItem("sunsa-theme", next); } catch (e) {}
   });
 
-  /* ---------------- links (Google Sheet) ---------------- */
+  /* ---------------- links (links.csv) ---------------- */
   function parseCSV(text) {
     const rows = []; let row = [], f = "", q = false;
     for (let i = 0; i < text.length; i++) {
@@ -39,16 +40,15 @@
   function getLinks() {
     if (linksPromise) return linksPromise;
     const fallback = () => C.fallbackLinks.map(([url, title, category]) => ({ url, title, category }));
-    if (!configured(C.sheetId)) return (linksPromise = Promise.resolve(fallback()));
-    const url = `https://docs.google.com/spreadsheets/d/${C.sheetId}/gviz/tq?tqx=out:csv&_=${Date.now()}`;
+    const url = `${C.linksFile || "links.csv"}?_=${Date.now()}`;
     linksPromise = fetch(url).then(r => { if (!r.ok) throw r.status; return r.text(); }).then(t => {
-      const rows = parseCSV(t).filter(r => r.some(x => x.trim()));
+      const rows = parseCSV(t.replace(/^\uFEFF/, "")).filter(r => r.some(x => x.trim()));
       const head = rows.shift().map(norm);
       const col = (name, d) => { const i = head.indexOf(name); return i < 0 ? d : i; };
       const iL = col("link", 0), iT = col("title", 1), iC = col("category", 2);
       return rows.map(r => ({ url: (r[iL] || "").trim(), title: (r[iT] || "").trim(), category: (r[iC] || "").trim() }))
                  .filter(l => /^https?:\/\//i.test(l.url));
-    }).catch(err => { console.warn("Sheet unavailable, using fallback links", err); return fallback(); });
+    }).catch(err => { console.warn("links.csv unavailable, using fallback links", err); return fallback(); });
     return linksPromise;
   }
   const linksFor = (links, ...names) => { const n = names.map(norm); return links.filter(l => n.includes(norm(l.category))); };
@@ -56,7 +56,7 @@
     const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
     el.innerHTML = `<h3>${esc(heading)}</h3>` + (list.length
       ? `<ul>${list.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">${esc(host(l.url))}</span></span></a></li>`).join("")}</ul>`
-      : `<p class="none">No links yet — add rows to the Sheet with Category “${esc(cat || heading)}”.</p>`);
+      : `<p class="none">No links yet — add rows to links.csv with Category “${esc(cat || heading)}”.</p>`);
   }
 
   /* ---------------- photos (Cloudinary) ---------------- */
@@ -156,12 +156,22 @@
         renderLinks($("#courses"), "Courses", linksFor(links, "Courses", "Course"));
       });
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
+      $("#techniques").innerHTML = TECH.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
+      $("#techniques-section").hidden = !TECH.length;
       $("#folders").innerHTML = [...C.collections].sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       fillCovers(document);
     },
 
     topic() {
-      const s = C.studies.find(x => x.slug === qs.get("t")) || C.studies[0];
+      const isTech = TECH.some(x => x.slug === qs.get("t"));
+      const group = isTech ? TECH : C.studies;
+      const s = group.find(x => x.slug === qs.get("t")) || C.studies[0];
+      if (isTech) {
+        $("#eyebrow").textContent = "Technique";
+        $("#crumb-group").textContent = "Technical"; $("#crumb-group").href = "index.html#techniques-section";
+        document.querySelectorAll(".nav a[aria-current]").forEach(a => a.removeAttribute("aria-current"));
+        $(".nav a[href$='#techniques-section']").setAttribute("aria-current", "page");
+      }
       document.title = `${s.title} · Sunsa`;
       $("#title").textContent = s.title;
       $("#crumb").textContent = s.title;
@@ -171,8 +181,9 @@
       getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, s.title, s.slug, s.tag), s.title));
       getPhotos(s.tag || s.slug).then(list => { if (list && list.length) $("#photos-label").textContent = `View ${list.length} photos`; });
       // neighbours
-      const i = C.studies.indexOf(s), prev = C.studies[(i - 1 + C.studies.length) % C.studies.length], next = C.studies[(i + 1) % C.studies.length];
-      $("#study-nav").innerHTML = `<a href="topic.html?t=${prev.slug}">← ${esc(prev.title)}</a><a href="topic.html?t=${next.slug}">${esc(next.title)} →</a>`;
+      const i = group.indexOf(s), prev = group[(i - 1 + group.length) % group.length], next = group[(i + 1) % group.length];
+      if (group.length === 2) $("#study-nav").innerHTML = `<span></span><a href="topic.html?t=${next.slug}">${esc(next.title)} →</a>`;
+      else if (group.length > 2) $("#study-nav").innerHTML = `<a href="topic.html?t=${prev.slug}">← ${esc(prev.title)}</a><a href="topic.html?t=${next.slug}">${esc(next.title)} →</a>`;
     },
 
     photos() {
