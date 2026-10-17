@@ -19,7 +19,7 @@
 
 ## Shadow mixes
 
-*Also on the [Shadows & Washes](topic.html?t=shadows) study.*
+*Also on the [Shadows](topic.html?t=shadows) study.*
 
 Stones are rarely uniform gray; their shadows pick up ambient sky light and ground reflections:
 

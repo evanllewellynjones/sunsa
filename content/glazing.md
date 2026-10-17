@@ -53,6 +53,6 @@
 
 - [Sky / Clouds](topic.html?t=sky-clouds) — washes & glazes, darkening the zenith
 - [Trees](topic.html?t=trees) — cool glaze to push greens into the distance
-- [Shadows & Washes](topic.html?t=shadows) — layering shadow color
+- [Shadows](topic.html?t=shadows) — layering shadow color
 - [Flowers](topic.html?t=flowers) — warm glazes on backlit petals
 - [Rocks](topic.html?t=rocks) — rust bands thinned with glaze medium
