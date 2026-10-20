@@ -44,7 +44,8 @@ window.SUNSA = {
     { slug: "color",         title: "Color Work",    tag: "color_work",    pigment: ["#c8562a", "Cadmium Orange"] },
     { slug: "impasto", title: "Impasto", tag: "impasto", pigment: ["#c9a24a", "Yellow Ochre"] },
     { slug: "glazing", title: "Glazing & Washes", tag: "glazing", pigment: ["#4a3470", "Dioxazine Purple"] },
-    { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] }
+    { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] },
+    { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] }
   ],
 
   /* NEXT UP — the "to paint next" photo folder shown under Courses on the home page.
