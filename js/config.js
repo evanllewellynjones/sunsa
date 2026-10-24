@@ -30,7 +30,8 @@ window.SUNSA = {
     { slug: "rocks",         title: "Rocks",         tag: "rocks",         pigment: ["#8b7d6b", "Raw Umber"] },
     { slug: "trees",         title: "Trees",         tag: "trees",         pigment: ["#4f6b35", "Sap Green"] },
     { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] },
-    { slug: "flowers",       title: "Flowers",       tag: "flowers",       pigment: ["#b03a6e", "Quinacridone Magenta"] }
+    { slug: "flowers",       title: "Flowers",       tag: "flowers",       pigment: ["#b03a6e", "Quinacridone Magenta"] },
+    { slug: "portraits",     title: "Portraits",     tag: "portraits",     pigment: ["#b5735a", "Transparent Red Oxide"] }
   ],
 
   /* ---------------------------------------------------------------
@@ -45,7 +46,8 @@ window.SUNSA = {
     { slug: "impasto", title: "Impasto", tag: "impasto", pigment: ["#c9a24a", "Yellow Ochre"] },
     { slug: "glazing", title: "Glazing & Washes", tag: "glazing", pigment: ["#4a3470", "Dioxazine Purple"] },
     { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] },
-    { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] }
+    { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] },
+    { slug: "great-artists", title: "Great Artist Techniques", tag: "great_artists", pigment: ["#7a1f2b", "Alizarin Crimson"] }
   ],
 
   /* NEXT UP — the "to paint next" photo folder shown under Courses on the home page.
