@@ -147,6 +147,18 @@
     });
   }
 
+  /* ---------------- art movement works ---------------- */
+  function workHTML(w, artist) {
+    const cap = `<figcaption><span class="t">${esc(w.title)}</span>, ${esc(w.year)}${w.src ? ` <a class="src" href="${esc(w.src)}" target="_blank" rel="noopener">source</a>` : ""}</figcaption>`;
+    if (w.card || !w.img) return `<figure class="work"><a class="work-card" href="${esc(w.link || "#")}" target="_blank" rel="noopener"><span>Image not shown — still under copyright</span><b>View the work ↗</b></a>${cap}</figure>`;
+    return `<figure class="work"><button class="work-img" aria-label="Enlarge ${esc(w.title)}"><img loading="lazy" src="${esc(w.img)}" alt="${esc(w.title)} — ${esc(artist)}, ${esc(w.year)}" data-cap="${esc(w.title)} — ${esc(artist)}, ${esc(w.year)}"></button>${cap}</figure>`;
+  }
+  function wireWorks(root) {
+    const imgs = [...root.querySelectorAll(".work-img img")];
+    const items = imgs.map(im => ({ src: im.getAttribute("src"), caption: im.dataset.cap }));
+    imgs.forEach((im, i) => im.parentElement.addEventListener("click", () => lightbox(items, i)));
+  }
+
   /* ---------------- pages ---------------- */
   const pages = {
     home() {
@@ -221,6 +233,38 @@
       const i = phases.indexOf(ph), prev = phases[i - 1], next = phases[i + 1];
       $("#study-nav").innerHTML = (prev ? `<a href="curriculum.html?p=${prev.n}">← Phase ${prev.n}</a>` : `<a href="curriculum.html">← Contents</a>`)
                                 + (next ? `<a href="curriculum.html?p=${next.n}">Phase ${next.n} →</a>` : `<a href="curriculum.html">Contents →</a>`);
+    },
+
+    movements() {
+      const M = window.MOVEMENTS || [];
+      $("#title").textContent = "Western Art Movements";
+      $("#crumb").textContent = "Art Movements";
+      $("#eyebrow").textContent = "Art history";
+      $("#sub").textContent = `${M.length} movements · Early Renaissance to today`;
+      $("#jump").innerHTML = M.map(m => `<a href="#${m.slug}">${esc(m.name)}</a>`).join("");
+      $("#mv-list").innerHTML = M.map(m => `<section class="mv" id="${m.slug}">
+        <div class="mv-head"><h2>${esc(m.name)}</h2><span class="dates">${esc(m.dates)}</span></div>
+        <p class="mv-desc">${esc(m.desc)}</p>
+        ${m.full ? `<a class="btn mv-more" href="movement.html?m=${m.slug}">Full page — more artists &amp; works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>` : ""}
+        <div class="mv-grid">${m.artists.map(a => `<div class="mv-artist"><h3>${esc(a.name)}</h3>${workHTML(a.works[0], a.name)}</div>`).join("")}</div>
+      </section>`).join("");
+      wireWorks(document);
+    },
+
+    movement() {
+      const M = window.MOVEMENTS || [], full = M.filter(m => m.full);
+      const m = full.find(x => x.slug === qs.get("m")) || full[0];
+      document.title = `${m.name} · Sunsa`;
+      $("#eyebrow").textContent = "Art movement";
+      $("#title").textContent = m.name;
+      $("#crumb").innerHTML = `<a href="movements.html">Art Movements</a> / ${esc(m.name)}`;
+      $("#sub").innerHTML = `${esc(m.dates)} · <a href="movements.html#${m.slug}">All movements</a>`;
+      $("#notes").innerHTML = `<p>${esc(m.desc)}</p>` + (m.study && m.study.length ? `<h3>What to study as a painter</h3><ul>${m.study.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "");
+      getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, m.name, m.slug), m.name));
+      const i = full.indexOf(m), prev = full[(i - 1 + full.length) % full.length], next = full[(i + 1) % full.length];
+      $("#study-nav").innerHTML = `<a href="movement.html?m=${prev.slug}">← ${esc(prev.name)}</a><a href="movement.html?m=${next.slug}">${esc(next.name)} →</a>`;
+      $("#mv-artists").innerHTML = m.artists.map(a => `<section class="mv-artist-full"><h2>${esc(a.name)}</h2><div class="mv-row">${a.works.map(w => workHTML(w, a.name)).join("")}</div></section>`).join("");
+      wireWorks(document);
     },
 
     photos() {
