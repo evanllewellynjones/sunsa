@@ -12,8 +12,8 @@
 
 **Video lessons**
 
-- [Fluids vs Heavy Body Acrylics: Thick vs Thin](https://www.youtube.com/watch?v=8QHirx9uLLM) — flow differences, leveling behavior, and how different viscosities mix together.
-- [How to Read Acrylic Paint Labels](https://www.youtube.com/watch?v=BytW2gak6kg) — ASTM ratings, pigment codes (e.g., PB29, PR108), series numbers, and transparency squares.
+- [Fluids vs Heavy Body Acrylics: Thick vs Thin](https://www.youtube.com/watch?v=8QHirx9uLLM) — *Kezia Carter · 4:01.* Flow differences, leveling behavior, and how different viscosities mix together.
+- [How to Read Acrylic Paint Labels](https://www.youtube.com/watch?v=BytW2gak6kg) — *Cant Stop Art · 7:36.* ASTM ratings, pigment codes (e.g., PB29, PR108), series numbers, and transparency squares.
 
 ---
 
@@ -29,8 +29,8 @@
 
 **Video lessons**
 
-- [Canvas vs Panels: Which Is Better for Painting?](https://www.youtube.com/watch?v=2Q30Tna0Zqc) — rigid supports vs. stretched fabric: brush response, durability, knife techniques.
-- [How to Prep Wooden Cradled Panels Before Painting](https://www.youtube.com/watch?v=bj4EhLYZ0iU) — sizing/sealing raw wood against tannins, then smooth gesso coats with sanding between.
+- [Canvas vs Panels: Which Is Better for Painting?](https://www.youtube.com/watch?v=2Q30Tna0Zqc) — *Chris Breier · 8:33.* Rigid supports vs. stretched fabric: brush response, durability, knife techniques.
+- [How to Prep Wooden Cradled Panels Before Painting](https://www.youtube.com/watch?v=bj4EhLYZ0iU) — *Jo Barnard · 2:32.* Sizing/sealing raw wood against tannins, then smooth gesso coats with sanding between.
 
 ---
 
@@ -46,8 +46,8 @@
 
 **Video lessons**
 
-- [Better Blending with Acrylics](https://www.youtube.com/watch?v=1h1Hp73DCyk) — water vs. retarders vs. blending mediums, and the thinning limits that prevent under-binding.
-- [How to Use a Sta-Wet Palette](https://www.youtube.com/watch?v=tm99cil9GTk) — sponge hydration, membrane prep, and keeping paint workable across days without over-diluting.
+- [Better Blending with Acrylics](https://www.youtube.com/watch?v=1h1Hp73DCyk) — *Michele Theberge · 8:28.* Water vs. retarders vs. blending mediums, and the thinning limits that prevent under-binding.
+- [How to Use a Sta-Wet Palette](https://www.youtube.com/watch?v=tm99cil9GTk) — *Brenda Beattie · 5:22.* Sponge hydration, membrane prep, and keeping paint workable across days without over-diluting.
 
 ---
 
