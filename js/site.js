@@ -197,6 +197,32 @@
       else if (group.length > 2) $("#study-nav").innerHTML = `<a href="topic.html?t=${prev.slug}">← ${esc(prev.title)}</a><a href="topic.html?t=${next.slug}">${esc(next.title)} →</a>`;
     },
 
+    curriculum() {
+      const phases = C.curriculum || [], name = C.curriculumTitle || "Fundamental Painting Curriculum";
+      const n = parseInt(qs.get("p"));
+      const ph = phases.find(x => x.n === n);
+      if (!ph) {                                   // table of contents
+        document.title = `${name} · Sunsa`;
+        $("#title").textContent = name;
+        $("#crumb").textContent = "Curriculum";
+        $("#eyebrow").textContent = "Curriculum";
+        $("#sub").textContent = `${phases.length} phases · materials to finishing`;
+        md("content/curriculum.md", $("#notes"), "Curriculum coming soon.");
+        $("#links").innerHTML = `<h3>Phases</h3><ul>${phases.map(x => `<li><a class="curric" href="curriculum.html?p=${x.n}"><span><span class="host">Phase ${x.n}</span><br><span class="t">${esc(x.title)}</span></span></a></li>`).join("")}</ul>`;
+        return;
+      }
+      document.title = `Phase ${ph.n}: ${ph.title} · Sunsa`;
+      $("#eyebrow").textContent = `Phase ${ph.n} of ${phases.length}`;
+      $("#title").textContent = ph.title;
+      $("#crumb").innerHTML = `<a href="curriculum.html">Curriculum</a> / Phase ${ph.n}`;
+      $("#sub").innerHTML = `<a href="curriculum.html">← ${esc(name)}</a>`;
+      md(`content/curriculum-phase-${ph.n}.md`, $("#notes"), "Lessons for this phase coming soon.");
+      getLinks().then(links => renderLinks($("#links"), "Further reading", linksFor(links, `Phase ${ph.n}`), `Phase ${ph.n}`));
+      const i = phases.indexOf(ph), prev = phases[i - 1], next = phases[i + 1];
+      $("#study-nav").innerHTML = (prev ? `<a href="curriculum.html?p=${prev.n}">← Phase ${prev.n}</a>` : `<a href="curriculum.html">← Contents</a>`)
+                                + (next ? `<a href="curriculum.html?p=${next.n}">Phase ${next.n} →</a>` : `<a href="curriculum.html">Contents →</a>`);
+    },
+
     photos() {
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       $("#collections").innerHTML = C.collections.map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");

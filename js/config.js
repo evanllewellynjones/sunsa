@@ -50,6 +50,24 @@ window.SUNSA = {
     { slug: "great-artists", title: "Great Artist Techniques", tag: "great_artists", pigment: ["#7a1f2b", "Alizarin Crimson"] }
   ],
 
+  /* ---------------------------------------------------------------
+     CURRICULUM — "Fundamental Painting Curriculum" (curriculum.html).
+     Table of contents lives in content/curriculum.md.
+     Each phase page lives in content/curriculum-phase-<n>.md
+     (missing file = "coming soon"). Links for a phase: put
+     "Phase <n>" in links.csv's Category column.
+     --------------------------------------------------------------- */
+  curriculumTitle: "Fundamental Painting Curriculum",
+  curriculum: [
+    { n: 1, title: "Materials, Mechanics & Surface Prep" },
+    { n: 2, title: "Value, Tonal Structure & Underpainting" },
+    { n: 3, title: "Color Theory, Mixing & Temperature" },
+    { n: 4, title: "Brushwork, Edges & Acrylic-Specific Techniques" },
+    { n: 5, title: "Composition, Perspective & Spatial Depth" },
+    { n: 6, title: "Subject-Specific Application Modules" },
+    { n: 7, title: "Critique, Revision & Archival Finishing" }
+  ],
+
   /* NEXT UP — the "to paint next" photo folder shown under Courses on the home page.
      tag = the Cloudinary TAG on those photos. */
   nextUp: { slug: "next-up", title: "Next Up", tag: "next_up" },
