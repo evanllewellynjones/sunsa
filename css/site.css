@@ -213,6 +213,7 @@ main > .section-title:first-child{margin-top:48px}
 
 /* Art movements */
 .mv-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 56px}
+.mv-artist .work+.work{margin-top:18px}
 .mv-jump a{font-size:16px;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;text-decoration:none;color:var(--ink);white-space:nowrap}
 .mv-jump a:hover{border-color:var(--accent);color:var(--accent)}
 .mv{border-top:1px solid var(--rule);padding:40px 0 48px}
