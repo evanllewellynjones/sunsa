@@ -11,6 +11,10 @@ window.SUNSA = {
   /* Links file in this repo — columns Link, Title, Category.
      Edit it on github.com (pencil icon) or in Excel, then upload. */
   linksFile: "links.csv",
+  /* Home-page link groups use these Category values in links.csv:
+       Great Artists (optional 4th column Image = thumbnail path, e.g. assets/artists/name_1.jpg;
+         up to 3 paths separated by ; show as a mosaic)
+       Artists · Courses (or Workshops) · Great Artist Techniques (shown inside the Summary) */
 
   photosPerPage: 50,
 
@@ -46,8 +50,7 @@ window.SUNSA = {
     { slug: "impasto", title: "Impasto", tag: "impasto", pigment: ["#c9a24a", "Yellow Ochre"] },
     { slug: "glazing", title: "Glazing & Washes", tag: "glazing", pigment: ["#4a3470", "Dioxazine Purple"] },
     { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] },
-    { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] },
-    { slug: "great-artists", title: "Great Artist Techniques", tag: "great_artists", pigment: ["#7a1f2b", "Alizarin Crimson"] }
+    { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] }
   ],
 
   /* ---------------------------------------------------------------
