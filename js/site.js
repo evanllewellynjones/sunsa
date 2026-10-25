@@ -149,9 +149,9 @@
 
   /* ---------------- art movement works ---------------- */
   function workHTML(w, artist) {
-    const cap = `<figcaption><span class="t">${esc(w.title)}</span>, ${esc(w.year)}${w.src ? ` <a class="src" href="${esc(w.src)}" target="_blank" rel="noopener">source</a>` : ""}</figcaption>`;
+    const cap = `<figcaption><span class="t">${esc(w.title)}</span>${w.year ? `, ${esc(w.year)}` : ""}${w.src ? ` <a class="src" href="${esc(w.src)}" target="_blank" rel="noopener">source</a>` : ""}</figcaption>`;
     if (w.card || !w.img) return `<figure class="work"><a class="work-card" href="${esc(w.link || "#")}" target="_blank" rel="noopener"><span>Image not shown — still under copyright</span><b>View the work ↗</b></a>${cap}</figure>`;
-    return `<figure class="work"><button class="work-img" aria-label="Enlarge ${esc(w.title)}"><img loading="lazy" src="${esc(w.img)}" alt="${esc(w.title)} — ${esc(artist)}, ${esc(w.year)}" data-cap="${esc(w.title)} — ${esc(artist)}, ${esc(w.year)}"></button>${cap}</figure>`;
+    return `<figure class="work"><button class="work-img" aria-label="Enlarge ${esc(w.title)}"><img loading="lazy" src="${esc(w.img)}" alt="${esc(w.title)} — ${esc(artist)}${w.year ? `, ${esc(w.year)}` : ""}" data-cap="${esc(w.title)} — ${esc(artist)}${w.year ? `, ${esc(w.year)}` : ""}"></button>${cap}</figure>`;
   }
   function wireWorks(root) {
     const imgs = [...root.querySelectorAll(".work-img img")];
@@ -241,12 +241,12 @@
       $("#crumb").textContent = "Art Movements";
       $("#eyebrow").textContent = "Art history";
       $("#sub").textContent = `${M.length} movements · Early Renaissance to today`;
-      $("#jump").innerHTML = M.map(m => `<a href="#${m.slug}">${esc(m.name)}</a>`).join("");
+      $("#jump").innerHTML = M.filter(m => m.full).map(m => `<a href="movement.html?m=${m.slug}">${esc(m.name)}</a>`).join("");
       $("#mv-list").innerHTML = M.map(m => `<section class="mv" id="${m.slug}">
         <div class="mv-head"><h2>${esc(m.name)}</h2><span class="dates">${esc(m.dates)}</span></div>
         <p class="mv-desc">${esc(m.desc)}</p>
         ${m.full ? `<a class="btn mv-more" href="movement.html?m=${m.slug}">Full page — more artists &amp; works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>` : ""}
-        <div class="mv-grid">${m.artists.map(a => `<div class="mv-artist"><h3>${esc(a.name)}</h3>${workHTML(a.works[0], a.name)}</div>`).join("")}</div>
+        <div class="mv-grid">${m.artists.map(a => { const shown = a.works.filter(w => w.img && !w.card); return `<div class="mv-artist"><h3>${esc(a.name)}</h3>${(shown.length ? shown : [a.works[0]]).map(w => workHTML(w, a.name)).join("")}</div>`; }).join("")}</div>
       </section>`).join("");
       wireWorks(document);
     },

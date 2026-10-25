@@ -2590,6 +2590,18 @@ window.MOVEMENTS = [
     "name": "David Hockney",
     "works": [
      {
+      "title": "Garrowby Hill",
+      "year": "1998",
+      "img": "assets/movements/pop-art--david-hockney--garrowby-hill.jpg",
+      "lic": "User-supplied"
+     },
+     {
+      "title": "Trees and long shadows",
+      "year": "",
+      "img": "assets/movements/pop-art--david-hockney--tree-shadows.jpg",
+      "lic": "User-supplied"
+     },
+     {
       "title": "A Bigger Splash",
       "year": "1967",
       "card": true,
@@ -2945,6 +2957,12 @@ window.MOVEMENTS = [
    {
     "name": "Gerhard Richter",
     "works": [
+     {
+      "title": "Abstract Painting (Abstraktes Bild)",
+      "year": "",
+      "img": "assets/movements/contemporary--gerhard-richter--abstract-painting.jpg",
+      "lic": "User-supplied"
+     },
      {
       "title": "Betty",
       "year": "1988",
