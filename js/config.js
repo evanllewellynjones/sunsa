@@ -15,7 +15,7 @@ window.SUNSA = {
        Artists — one card each. Column Image = picture path (e.g. assets/artists/hill_1.png),
                  column Workshop = link shown as "Online workshops" under the name (optional)
        Courses — listed in the Study Guides box
-       Great Artist Techniques — its own box beside Before the First Stroke */
+       <Artist name> (e.g. John Singer Sargent) — extra links listed under that artist's card */
 
   photosPerPage: 50,
 

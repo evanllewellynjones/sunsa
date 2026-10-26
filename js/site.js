@@ -168,17 +168,14 @@
         // Study Guides: append Courses rows
         const courses = linksFor(links, "Courses", "Course", "Workshops", "Workshop");
         $("#curriculum-box ul").insertAdjacentHTML("beforeend", courses.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">Course · ${esc(host(l.url))}</span></span></a></li>`).join(""));
-        // Great Artist Techniques: its own box
-        const gt = linksFor(links, "Great Artist Techniques"), gtBox = $("#great-techniques");
-        gtBox.hidden = !gt.length;
-        if (gt.length) renderLinks(gtBox, "Great Artist Techniques", gt);
         // Artists: one small card each, then photo-only folders flagged home:"artists"
         const sw = ["#c8562a", "#6f7fc0", "#4f6b35", "#a0522d", "#4a3470", "#c9a24a"];
         const cards = linksFor(links, "Artists", "Artist", "Great Artists", "Great Artist").map((l, i) => {
           const pic = l.image.split(";").map(x => x.trim()).filter(Boolean)[0];
+          const own = linksFor(links, l.title);   // extra links: rows whose Category = this artist's name
           return `<div class="card artist-card" style="--sw:${sw[i % sw.length]}">
             <a class="art" href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.title)} website"><span class="blob"></span>${pic ? `<img loading="lazy" src="${esc(pic)}" alt="Painting by ${esc(l.title)}" onerror="this.remove()">` : ""}</a>
-            <div class="meta"><a class="name" href="${esc(l.url)}" target="_blank" rel="noopener"><b>${esc(l.title)}</b></a>${l.workshop ? `<a class="ws" href="${esc(l.workshop)}" target="_blank" rel="noopener">Online workshops ↗</a>` : `<small>${esc(host(l.url))}</small>`}</div></div>`;
+            <div class="meta"><a class="name" href="${esc(l.url)}" target="_blank" rel="noopener"><b>${esc(l.title)}</b></a>${l.workshop ? `<a class="ws" href="${esc(l.workshop)}" target="_blank" rel="noopener">Online workshops ↗</a>` : ""}${own.map(v => `<a class="ws" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title || host(v.url))} ↗</a>`).join("")}${!l.workshop && !own.length ? `<small>${esc(host(l.url))}</small>` : ""}</div></div>`;
         });
         const extra = C.collections.filter(c => c.home === "artists").map(c => cardHTML(c, `gallery.html?c=${c.slug}`));
         const box = $("#artist-cards");
