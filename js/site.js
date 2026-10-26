@@ -45,8 +45,8 @@
       const rows = parseCSV(t.replace(/^\uFEFF/, "")).filter(r => r.some(x => x.trim()));
       const head = rows.shift().map(norm);
       const col = (name, d) => { const i = head.indexOf(name); return i < 0 ? d : i; };
-      const iL = col("link", 0), iT = col("title", 1), iC = col("category", 2), iI = col("image", 3);
-      return rows.map(r => ({ url: (r[iL] || "").trim(), title: (r[iT] || "").trim(), category: (r[iC] || "").trim(), image: (r[iI] || "").trim() }))
+      const iL = col("link", 0), iT = col("title", 1), iC = col("category", 2), iI = col("image", 3), iW = col("workshop", 4);
+      return rows.map(r => ({ url: (r[iL] || "").trim(), title: (r[iT] || "").trim(), category: (r[iC] || "").trim(), image: (r[iI] || "").trim(), workshop: (r[iW] || "").trim() }))
                  .filter(l => /^https?:\/\//i.test(l.url));
     }).catch(err => { console.warn("links.csv unavailable, using fallback links", err); return fallback(); });
     return linksPromise;
@@ -164,17 +164,26 @@
     home() {
       md("content/summary.md", $("#summary"), "");
       getLinks().then(links => {
-        renderLinks($("#artists"), "Artists", linksFor(links, "Artists", "Artist"));
-        renderLinks($("#courses"), "Courses & Workshops", linksFor(links, "Courses", "Course", "Workshops", "Workshop"), "Courses");
-        const gt = linksFor(links, "Great Artist Techniques");
-        $("#great-techniques").hidden = !gt.length;
-        if (gt.length) renderLinks($("#great-techniques"), "Great Artist Techniques", gt);
-        const ga = linksFor(links, "Great Artists", "Great Artist"), host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+        const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+        // Study Guides: append Courses rows
+        const courses = linksFor(links, "Courses", "Course", "Workshops", "Workshop");
+        $("#curriculum-box ul").insertAdjacentHTML("beforeend", courses.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">Course · ${esc(host(l.url))}</span></span></a></li>`).join(""));
+        // Great Artist Techniques: its own box
+        const gt = linksFor(links, "Great Artist Techniques"), gtBox = $("#great-techniques");
+        gtBox.hidden = !gt.length;
+        if (gt.length) renderLinks(gtBox, "Great Artist Techniques", gt);
+        // Artists: one small card each, then photo-only folders flagged home:"artists"
         const sw = ["#c8562a", "#6f7fc0", "#4f6b35", "#a0522d", "#4a3470", "#c9a24a"];
-        $("#great-artists").innerHTML = ga.map((l, i) => `<a class="card artist-card" href="${esc(l.url)}" target="_blank" rel="noopener">
-          <span class="art${l.image.split(";").filter(x => x.trim()).length > 1 ? " multi" : ""}" style="--sw:${sw[i % sw.length]}"><span class="blob"></span>${l.image.split(";").map(x => x.trim()).filter(Boolean).slice(0, 3).map(src => `<img loading="lazy" src="${esc(src)}" alt="Painting by ${esc(l.title)}" onerror="this.remove()">`).join("")}</span>
-          <span class="meta"><b>${esc(l.title)}</b><small>${esc(host(l.url))} ↗</small></span></a>`).join("")
-          || `<p class="none">Add rows to links.csv with Category “Great Artists”.</p>`;
+        const cards = linksFor(links, "Artists", "Artist", "Great Artists", "Great Artist").map((l, i) => {
+          const pic = l.image.split(";").map(x => x.trim()).filter(Boolean)[0];
+          return `<div class="card artist-card" style="--sw:${sw[i % sw.length]}">
+            <a class="art" href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.title)} website"><span class="blob"></span>${pic ? `<img loading="lazy" src="${esc(pic)}" alt="Painting by ${esc(l.title)}" onerror="this.remove()">` : ""}</a>
+            <div class="meta"><a class="name" href="${esc(l.url)}" target="_blank" rel="noopener"><b>${esc(l.title)}</b></a>${l.workshop ? `<a class="ws" href="${esc(l.workshop)}" target="_blank" rel="noopener">Online workshops ↗</a>` : `<small>${esc(host(l.url))}</small>`}</div></div>`;
+        });
+        const extra = C.collections.filter(c => c.home === "artists").map(c => cardHTML(c, `gallery.html?c=${c.slug}`));
+        const box = $("#artist-cards");
+        box.innerHTML = cards.join("") + extra.join("");
+        fillCovers(box);
       });
       $("#studies").innerHTML = C.studies.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
       const nu = C.nextUp, box = $("#next-up");
@@ -190,7 +199,7 @@
       }
       $("#techniques").innerHTML = TECH.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
       $("#techniques-section").hidden = !TECH.length;
-      $("#folders").innerHTML = [...C.collections].sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
+      $("#folders").innerHTML = C.collections.filter(c => !c.home).sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       fillCovers(document);
     },
 

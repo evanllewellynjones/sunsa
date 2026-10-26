@@ -2592,13 +2592,13 @@ window.MOVEMENTS = [
      {
       "title": "Garrowby Hill",
       "year": "1998",
-      "img": "assets/movements/pop-art--david-hockney--garrowby-hill.jpg",
+      "img": "assets/movements/hockney_1.png",
       "lic": "User-supplied"
      },
      {
       "title": "Trees and long shadows",
       "year": "",
-      "img": "assets/movements/pop-art--david-hockney--tree-shadows.jpg",
+      "img": "assets/movements/hockney_2.png",
       "lic": "User-supplied"
      },
      {
@@ -2960,7 +2960,7 @@ window.MOVEMENTS = [
      {
       "title": "Abstract Painting (Abstraktes Bild)",
       "year": "",
-      "img": "assets/movements/contemporary--gerhard-richter--abstract-painting.jpg",
+      "img": "assets/movements/Richter.png",
       "lic": "User-supplied"
      },
      {

@@ -12,9 +12,10 @@ window.SUNSA = {
      Edit it on github.com (pencil icon) or in Excel, then upload. */
   linksFile: "links.csv",
   /* Home-page link groups use these Category values in links.csv:
-       Great Artists (optional 4th column Image = thumbnail path, e.g. assets/artists/name_1.jpg;
-         up to 3 paths separated by ; show as a mosaic)
-       Artists · Courses (or Workshops) · Great Artist Techniques (shown inside the Summary) */
+       Artists — one card each. Column Image = picture path (e.g. assets/artists/hill_1.png),
+                 column Workshop = link shown as "Online workshops" under the name (optional)
+       Courses — listed in the Study Guides box
+       Great Artist Techniques — its own box beside Before the First Stroke */
 
   photosPerPage: 50,
 
@@ -81,7 +82,7 @@ window.SUNSA = {
      --------------------------------------------------------------- */
   collections: [
     { slug: "asia-africa",   title: "Asia & Africa",  tag: "asia_africa" },
-    { slug: "other-artists", title: "Other Artists",  tag: "other_artists" },
+    { slug: "other-artists", title: "Other Artists",  tag: "other_artists", home: "artists" },  // shown in the Artists section
     { slug: "travel",        title: "Travel",         tag: "travel_pics" },
     { slug: "treetop-ridge", title: "Treetop Ridge",  tag: "treetop_ridge" }
   ],
