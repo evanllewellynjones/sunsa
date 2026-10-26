@@ -97,8 +97,12 @@ h1{font-size:clamp(40px,6vw,64px);letter-spacing:-.01em}
 .summary .aside-stack .panel{padding:22px 24px}
 .summary .links a{padding:9px 2px}
 #artists-section .section-title{margin-bottom:20px}
-.cards.artist-cards{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:18px;margin-bottom:56px}
-@media (max-width:600px){.cards.artist-cards{grid-template-columns:1fr 1fr;gap:12px}}
+/* home-page card grids: Artists, Studies, Technical, Photo Folders — 6 across */
+#artist-cards,#studies,#techniques,#folders{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-bottom:56px}
+@media (max-width:1000px){#artist-cards,#studies,#techniques,#folders{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:640px){#artist-cards,#studies,#techniques,#folders{grid-template-columns:1fr 1fr;gap:12px}}
+:is(#studies,#techniques,#folders) .card .meta{flex-direction:column;align-items:flex-start;gap:3px;padding:12px 14px 14px}
+:is(#studies,#techniques,#folders) .card .meta b{font-size:19px;line-height:1.15}
 .artist-card .art{display:block}
 .artist-card .art img{position:absolute;inset:0}
 #artist-cards .card .meta{flex-direction:column;align-items:flex-start;gap:3px;padding:12px 14px 14px}
