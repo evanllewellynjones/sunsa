@@ -36,7 +36,8 @@ window.SUNSA = {
     { slug: "trees",         title: "Trees",         tag: "trees",         pigment: ["#4f6b35", "Sap Green"] },
     { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] },
     { slug: "flowers",       title: "Flowers",       tag: "flowers",       pigment: ["#b03a6e", "Quinacridone Magenta"] },
-    { slug: "portraits",     title: "Portraits",     tag: "portraits",     pigment: ["#b5735a", "Transparent Red Oxide"] }
+    { slug: "portraits",     title: "Portraits",     tag: "portraits",     pigment: ["#b5735a", "Transparent Red Oxide"] },
+    { slug: "landscape",     title: "Landscape",     tag: "landscape",     pigment: ["#7a8a4a", "Terre Verte"] }
   ],
 
   /* ---------------------------------------------------------------
@@ -82,7 +83,7 @@ window.SUNSA = {
      --------------------------------------------------------------- */
   collections: [
     { slug: "asia-africa",   title: "Asia & Africa",  tag: "asia_africa" },
-    { slug: "other-artists", title: "Other Artists",  tag: "other_artists", home: "artists" },  // shown in the Artists section
+    { slug: "other-artists", title: "Other Artists",  tag: "other_artists" },
     { slug: "travel",        title: "Travel",         tag: "travel_pics" },
     { slug: "treetop-ridge", title: "Treetop Ridge",  tag: "treetop_ridge" }
   ],
