@@ -28,6 +28,7 @@ window.SUNSA = {
      --------------------------------------------------------------- */
   studies: [
     { slug: "human-imagery", title: "Human Imagery", tag: "human_imagery", pigment: ["#c98f72", "Flesh Tint"] },
+    { slug: "portraits",     title: "Portraits",     tag: "portraits",     pigment: ["#b5735a", "Transparent Red Oxide"] },
     { slug: "mountains",     title: "Mountains",     tag: "mountains",     pigment: ["#5d6b7a", "Payne's Grey"] },
     { slug: "beaches",       title: "Beaches",       tag: "beaches",       pigment: ["#d9b77a", "Naples Yellow"] },
     { slug: "alleyways",     title: "Alleyways",     tag: "alleyways",     pigment: ["#8a4b3a", "Venetian Red"] },
@@ -36,7 +37,6 @@ window.SUNSA = {
     { slug: "trees",         title: "Trees",         tag: "trees",         pigment: ["#4f6b35", "Sap Green"] },
     { slug: "water",         title: "Water",         tag: "water",         pigment: ["#2f6f73", "Phthalo Turquoise"] },
     { slug: "flowers",       title: "Flowers",       tag: "flowers",       pigment: ["#b03a6e", "Quinacridone Magenta"] },
-    { slug: "portraits",     title: "Portraits",     tag: "portraits",     pigment: ["#b5735a", "Transparent Red Oxide"] },
     { slug: "landscape",     title: "Landscape",     tag: "landscape",     pigment: ["#7a8a4a", "Terre Verte"] }
   ],
 

@@ -1,6 +1,6 @@
 ## Layout \& Info
 
-* **First:** Sketch out on a separate piece of paper the general composition and where TONAL VALUES will be
+* **First:** Sketch out on a separate piece of paper the general composition and where TONAL VALUES will be — try to define where 5–9 tonal values, from light to dark, are represented in the painting
 
   * Consider foreground, mid ground, background, and focal point in the beginning
 * **Second**: Do an UNDERPAINTING with a warm neutral color (Burnt Sienna) entire canvas and TONAL VALUES

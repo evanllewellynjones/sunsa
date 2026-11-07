@@ -266,3 +266,8 @@ main > .section-title:first-child{margin-top:48px}
 .mv-row .work-img{aspect-ratio:auto;max-height:340px}
 .mv-row .work-img img{height:auto;max-height:340px;object-fit:contain;background:var(--paper-2)}
 #mv-artists{margin-bottom:96px}
+
+/* ---------- small clickable reference thumbnails (notes pages) ---------- */
+.prose .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:8px 0 28px}
+.prose .thumbs img{width:100%;aspect-ratio:1;object-fit:cover;margin:0;border-radius:6px;background:var(--paper-2)}
+.prose .thumbs img:hover{outline:2px solid var(--accent);outline-offset:2px}
