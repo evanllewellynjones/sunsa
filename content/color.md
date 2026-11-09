@@ -1,5 +1,3 @@
-![The color wheel and its neutral modifiers: brown & grey](assets/color-wheel.jpg)
-
 ## Brown & grey — the neutral modifiers
 
 **Role of brown in tone** — Brown is a powerful direct tone modifier. Added to a pure hue it keeps the base color's identity (green stays green) while reducing saturation and warmth, creating naturalistic, earthy color. Essential for controlling color intensity.
