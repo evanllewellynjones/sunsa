@@ -1,4 +1,6 @@
-## Brown & grey — the neutral modifiers
+<p class="toc"><strong><a href="#brown-grey">Brown &amp; grey — the neutral modifiers</a></strong> · <strong><a href="#color-harmony">Color harmony</a></strong> · <strong><a href="#pastel-color">Pastel color</a></strong></p>
+
+<h2 class="part" id="brown-grey">Brown &amp; grey — the neutral modifiers</h2>
 
 **Role of brown in tone** — Brown is a powerful direct tone modifier. Added to a pure hue it keeps the base color's identity (green stays green) while reducing saturation and warmth, creating naturalistic, earthy color. Essential for controlling color intensity.
 
@@ -7,6 +9,8 @@
 **Role of grey in value** — Grey is the primary value modifier (tint and shade with intermediate value). Achromatic grey changes value and saturation without a temperature shift. Chromatic grey gives precise value control with a built-in color cast — crucial for rendering form and depth.
 
 **Creating & using greys** — Greys are made achromatically (black + white) or chromatically (complementary pairs). Their main role is to desaturate hues: achromatic grey affects value most purely; chromatic grey adds subtle temperature complexity. Used to define shadows, form, and to harmonize strong hues.
+
+<h2 class="part" id="color-harmony">Color harmony</h2>
 
 ## Complementary contrast
 
@@ -42,7 +46,7 @@ Complementary colors sit directly opposite each other on the wheel. Side by side
 - **Shift values to prevent vibration** — if a saturated red and green share the same lightness, the edge flickers. Lighten one (pale pink/peach) or darken the other (deep pine green).
 - **Use them for neutral shadows** — mixed physically on the palette, complements cancel into rich, harmonious chromatic grays and deep shadows.
 
-## Color harmony
+## Harmonious schemes
 
 Harmonious schemes rely on colors that share underlying bases. Rather than tension, harmony creates cohesion, unity and a soothing, natural balance.
 
@@ -80,7 +84,7 @@ Three colors evenly spaced on the wheel. For landscapes and architecture, use ea
 - **60 · 30 · 10 hierarchy** — 60% dominant hue sets the mood (foliage greens); 30% analogous neighbor supports structure (ochre stone, warm timber); 10% accent draws the focal point (golden urn, crisp white gable).
 - **Bridge with neutralized tones** — between analogous zones (sunny yellow-greens to cool slate blues), bridge with low-saturation earths (Raw Umber, Burnt Sienna, grayed ochre) to avoid jarring breaks.
 
-## Pastel color
+<h2 class="part" id="pastel-color">Pastel color</h2>
 
 Creating pastel colors in acrylic painting requires balancing three physical elements: **raising the value** (lightening with the correct white), **reducing chromatic saturation** (muting the synthetic "candy" look), and **controlling surface sheen** (eliminating plastic gloss for a velvety, soft-powder finish).
 
