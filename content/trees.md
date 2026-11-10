@@ -1,4 +1,15 @@
 <!-- Starter notes — edit freely. -->
+## 6 keys to painting trees
+
+From the video *6 Keys to Painting Trees* (in Further reading):
+
+1. **Jagged, angular branches** — not every branch arcs; angles create movement, especially in the smaller branches.
+2. **Varied, random spacing** — branches should never be equally spaced.
+3. **Stagger the branches** — they shouldn't come out of the same place on each side of the trunk.
+4. **Thick, then taper** — branches start thick and taper toward the tips.
+5. **Color in the bark** — not just brown and tan.
+6. **Value change within the tree** — light and dark on the same tree.
+
 ## Shape first
 
 - Paint the tree's overall **silhouette shape** before any leaves — every species has a characteristic shape

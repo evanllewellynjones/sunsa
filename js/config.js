@@ -48,11 +48,22 @@ window.SUNSA = {
   techniques: [
     { slug: "edges",         title: "Edges",         tag: "edges",         pigment: ["#5a3a24", "Burnt Umber"] },
     { slug: "shadows",       title: "Shadows",       tag: "shadows",       pigment: ["#26305e", "Ultramarine"] },
-    { slug: "color",         title: "Color Work",    tag: "color_work",    pigment: ["#c8562a", "Cadmium Orange"] },
     { slug: "impasto", title: "Impasto", tag: "impasto", pigment: ["#c9a24a", "Yellow Ochre"] },
     { slug: "glazing", title: "Glazing & Washes", tag: "glazing", pigment: ["#4a3470", "Dioxazine Purple"] },
     { slug: "underpainting", title: "Underpainting & Toned Ground", tag: "underpainting", pigment: ["#a0522d", "Burnt Sienna"] },
     { slug: "impressionism", title: "Impressionism", tag: "impressionism", pigment: ["#6f7fc0", "Cobalt Blue"] }
+  ],
+
+  /* ---------------------------------------------------------------
+     COLOR WORK — its own home-page section (like Technical).
+     Same fields; notes live in content/<slug>.md,
+     links.csv uses the title as Category, photos use the tag.
+     --------------------------------------------------------------- */
+  colorWork: [
+    { slug: "brown-grey",    title: "Brown & Grey Neutral Modifiers", tag: "brown_grey",   pigment: ["#6e6258", "Raw Umber + Grey"] },
+    { slug: "color-harmony", title: "Color Harmony",                  tag: "color_work",   pigment: ["#c8562a", "Cadmium Orange"] },
+    { slug: "muted-colors",  title: "De-Saturated / Muted Colors",    tag: "muted_colors", pigment: ["#a49a8c", "Unbleached Titanium"] },
+    { slug: "greens",        title: "Greens",                         tag: "greens",       pigment: ["#3f6b4a", "Hooker's Green"] }
   ],
 
   /* ---------------------------------------------------------------

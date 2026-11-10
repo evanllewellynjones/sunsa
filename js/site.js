@@ -6,7 +6,8 @@
   const norm = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   const qs = new URLSearchParams(location.search);
   const TECH = C.techniques || [];
-  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...TECH.map(s => ({ ...s, kind: "study", tech: true })), ...(C.nextUp ? [{ ...C.nextUp, kind: "collection" }] : []), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
+  const COLOR = C.colorWork || [];
+  const allCats = () => [...C.studies.map(s => ({ ...s, kind: "study" })), ...TECH.map(s => ({ ...s, kind: "study", tech: true })), ...COLOR.map(s => ({ ...s, kind: "study", color: true })), ...(C.nextUp ? [{ ...C.nextUp, kind: "collection" }] : []), ...C.collections.map(s => ({ ...s, kind: "collection" }))];
   const findCat = slug => allCats().find(c => c.slug === slug);
   const configured = v => v && !/^YOUR_/.test(v);
 
@@ -196,19 +197,28 @@
       }
       $("#techniques").innerHTML = TECH.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
       $("#techniques-section").hidden = !TECH.length;
+      $("#colorwork").innerHTML = COLOR.map(s => cardHTML(s, `topic.html?t=${s.slug}`)).join("");
+      $("#color-section").hidden = !COLOR.length;
       $("#folders").innerHTML = C.collections.filter(c => !c.home).sort((a, b) => a.title.localeCompare(b.title)).map(s => cardHTML(s, `gallery.html?c=${s.slug}`)).join("");
       fillCovers(document);
     },
 
     topic() {
       const isTech = TECH.some(x => x.slug === qs.get("t"));
-      const group = isTech ? TECH : C.studies;
+      const isColor = COLOR.some(x => x.slug === qs.get("t"));
+      const group = isTech ? TECH : isColor ? COLOR : C.studies;
       const s = group.find(x => x.slug === qs.get("t")) || C.studies[0];
       if (isTech) {
         $("#eyebrow").textContent = "Technique";
         $("#crumb-group").textContent = "Technical"; $("#crumb-group").href = "index.html#techniques-section";
         document.querySelectorAll(".nav a[aria-current]").forEach(a => a.removeAttribute("aria-current"));
         $(".nav a[href$='#techniques-section']").setAttribute("aria-current", "page");
+      }
+      if (isColor) {
+        $("#eyebrow").textContent = "Color Work";
+        $("#crumb-group").textContent = "Color Work"; $("#crumb-group").href = "index.html#color-section";
+        document.querySelectorAll(".nav a[aria-current]").forEach(a => a.removeAttribute("aria-current"));
+        $(".nav a[href$='#color-section']").setAttribute("aria-current", "page");
       }
       document.title = `${s.title} · Sunsa`;
       $("#title").textContent = s.title;

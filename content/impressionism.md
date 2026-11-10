@@ -62,7 +62,7 @@ Impressionists — and later Post-Impressionists like Van Gogh — used thick pa
 
 ### 4. Banish black & embrace luminous shadows
 
-Shadows are full of reflected light and [color](topic.html?t=color), not absence of light.
+Shadows are full of reflected light and [color](topic.html?t=color-harmony), not absence of light.
 
 - **No tube black:** mix chromatic darks from deep complements — **Ultramarine Blue + Burnt Umber** or **Viridian + Alizarin Crimson**
 - **Color-shift shadows:** paint tree trunks, path shadows and mountain crevices with deep purples, blues and rich greens

@@ -70,7 +70,8 @@ If a title contains a comma, wrap it in quotes: `"Trees - comma strokes, slow-mo
 
 | Tag | Shows on |
 |---|---|
-| `edges` `shadows` `color_work` `human_imagery` `mountains` `beaches` `alleyways` `sky_clouds` `rocks` `trees` `water` `flowers` `portraits` `landscape` | the matching Study + its Photo Folder |
+| `edges` `shadows` `human_imagery` `mountains` `beaches` `alleyways` `sky_clouds` `rocks` `trees` `water` `flowers` `portraits` `landscape` | the matching Study + its Photo Folder |
+| `color_work` (Color Harmony) `brown_grey` `muted_colors` `greens` | the matching Color Work page + its Photo Folder |
 | `asia_africa` `other_artists` `travel_pics` `treetop_ridge` | Photo Folders only |
 
 Capitals don't matter. Tip: keep one Cloudinary folder per tag, then after uploading select all in the folder → **Tag**.
