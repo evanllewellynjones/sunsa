@@ -106,7 +106,6 @@ window.SUNSA = {
     ["https://www.patreon.com/cw/staycreativepainting", "Ryan O'Rourke", "Artists"],
     ["https://www.patreon.com/cw/johnsilverart", "John Silver", "Artists"],
     ["https://www.youtube.com/@philstarke.artist", "Phil Starke", "Artists"],
-    ["https://www.painters-academy.com/acrylic-painting-from-beginner-to-master", "Painters Academy — Acrylic, Beginner to Master", "Courses"],
     ["https://www.udemy.com/topic/acrylic-painting/", "Udemy — Acrylic Painting Courses", "Courses"],
     ["https://youtu.be/ma-knl2Bu6s", "Hard & Soft Edges in Portraits", "Edges"],
     ["https://www.youtube.com/watch?v=giUACK8XwDI&t=228s", "5 Tips to Hard & Soft Edges", "Edges"],

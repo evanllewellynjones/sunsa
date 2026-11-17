@@ -166,9 +166,9 @@
       md("content/summary.md", $("#summary"), "");
       getLinks().then(links => {
         const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
-        // Study Guides: append Courses rows
+        // Courses rows from links.csv: own box above Materials (only if any)
         const courses = linksFor(links, "Courses", "Course", "Workshops", "Workshop");
-        $("#curriculum-box ul").insertAdjacentHTML("beforeend", courses.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">Course · ${esc(host(l.url))}</span></span></a></li>`).join(""));
+        if (courses.length) $("#materials-box").insertAdjacentHTML("beforebegin", `<div class="panel links" id="courses-box"><h3>Other Courses</h3><ul>${courses.map(l => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><span class="t">${esc(l.title || host(l.url))}</span><br><span class="host">Course · ${esc(host(l.url))}</span></span></a></li>`).join("")}</ul></div>`);
         // Artists: one small card each, then photo-only folders flagged home:"artists"
         const sw = ["#c8562a", "#6f7fc0", "#4f6b35", "#a0522d", "#4a3470", "#c9a24a"];
         const cards = linksFor(links, "Artists", "Artist", "Great Artists", "Great Artist").map((l, i) => {

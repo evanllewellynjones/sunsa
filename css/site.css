@@ -239,6 +239,7 @@ main > .section-title:first-child{margin-top:48px}
 .course-banner img{display:block;width:100%;height:auto}
 .course-banner:hover img{opacity:.9}
 .links .login{margin:10px 0 0;font-size:16px;line-height:1.45;word-break:break-all}
+.links .note{margin:10px 0 0;font-size:16px;color:var(--muted)}
 .links .login span{display:inline-block;min-width:3em;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 /* Curriculum */
